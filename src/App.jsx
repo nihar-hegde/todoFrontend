@@ -13,7 +13,9 @@ function App() {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/todos");
+      const response = await axios.get(
+        "https://todo-backend-ten.vercel.app/todos"
+      );
       setTodos(response.data.data);
     } catch (error) {
       console.log("you fucked up!", error);
@@ -25,7 +27,7 @@ function App() {
   };
   const handleDeleteTodo = async (todoId) => {
     try {
-      await axios.delete(`http://localhost:3000/todos/${todoId}`);
+      await axios.delete(`https://todo-backend-ten.vercel.app/todos/${todoId}`);
       setTodos((prevTodos) => prevTodos.filter((todo) => todo._id !== todoId));
     } catch (error) {
       console.log("Error occurred while deleting todo:", error);

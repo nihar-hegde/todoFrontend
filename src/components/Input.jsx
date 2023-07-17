@@ -23,10 +23,13 @@ function Input({ onAddTodo }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/todos", {
-        title: title,
-        description: description,
-      });
+      const response = await axios.post(
+        "https://todo-backend-ten.vercel.app/todos",
+        {
+          title: title,
+          description: description,
+        }
+      );
       console.log("Data submitted successfully:", response.data);
       // Clear the input fields after successful submission
       const newTodo = {
